@@ -11,5 +11,5 @@ func main() {
 		io.WriteString(s, "Hello world\n")
 	})
 
-	log.Fatal(ssh.ListenAndServe(":2222", nil))
+	log.Fatal(ssh.ListenAndServe(":22", nil))
 }
