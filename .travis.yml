@@ -1,0 +1,15 @@
+language: go
+go:
+- 1.7.4
+before_install:
+- go get github.com/mitchellh/gox
+script:
+- gox -os="linux" -arch="amd64"
+deploy:
+  provider: releases
+  api_key:
+    secure: f9He+wmLkR4ANlomLG3XFSTiyeyQ7KGVEVgndPyaIhHW9cwaX8KgUrO7qKITuVx3BkD+EPeyY7kb1/E1PvrrxI93HsCLGc3MLPMy7rfFqpIWrWHVZ4XHIPr7qN8K9ZR7/BuygIv1e8ysgfG/5nX9wcgyRpwqWPFk3MvkG4aZc4S2qfyLa3Qi3aDY9Nb3u8o3n/8xBpxvm27HicCxbK85ad4waf9semMbfvpfn+SK9T77SlnQ+4iEyw3MdYRYO/DHo4kSh3BjUqrqiBsRQRfLbtFYQs97e2cTwhm0H0uDFxeAKKCeTF600h4CEvw7dRAY3wvPL2Hfw5oe7L4JOeNyBJqB3Ot13aaFZ/Di7j8f2vS1qLY0vCsv0hYwBGPK8G3g3TgkNRYeBKfNNCIC4EccT/vyCGiI70Th2HMluV+AgJ3/0LT+JdFqFLkFIIe0QtEOuctE8TLF5taMUjxodt+kvH5Ej/Y786p5sCRRW+LqeBWIkdvErlPkDB8WhROXn+99wSHP0zQ/nfBJ8JlJhA/vgVmEiOPGrfwiWKaF6wTxdYZGpQ+HkqZiCmhYA36L4su8s/CIa+Tw3VY/+DuFZ6F2vfpegRJyTCB1cE/w+wTm3VHPgry2dqLzyokVM16Lw4qpoy3E9t4pkAooeh4qcAx2vp8wUGQwlz78eO//OAkUjKg=
+  file: sshd_mock_linux_amd64
+  skip_cleanup: true
+  on:
+    tags: true
